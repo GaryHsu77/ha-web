@@ -61,7 +61,7 @@
               <md-card-content>
                 <md-table v-model="services" @md-selected="onSelect">
                   <md-table-row slot="md-table-row" slot-scope="{ item }" :class="getClass(item)" md-selectable="single">
-                    <md-table-cell md-label="Backup"><md-switch v-model="selected.statusb" class="md-danger"></md-switch></md-table-cell>
+                    <md-table-cell md-label="Backup"><md-switch v-model="selected.statusb" class="md-success"></md-switch></md-table-cell>
                     <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
                     <md-table-cell md-label="Model">{{ item.version }}</md-table-cell>
                     <md-table-cell md-label="Status">{{ item.state }}</md-table-cell>
