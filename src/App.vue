@@ -59,9 +59,11 @@
                 <h4 class="title">Service List</h4>
               </md-card-header>
               <md-card-content>
-                <md-table v-model="services" @md-selected="onSelect">
-                  <md-table-row slot="md-table-row" slot-scope="{ item }" :class="getClass(item)" md-selectable="single">
-                    <md-table-cell md-label="Backup"><md-switch v-model="selected.statusb" class="md-success"></md-switch></md-table-cell>
+                <md-table v-model="services">
+                  <md-table-row slot="md-table-row" slot-scope="{ item }" :class="getClass(item)">
+                    <md-table-cell md-label="Backup">
+                      <my-switch v-model="item.enable" open-name="" close-name="" color="green" @change="serviceOnSelect"></my-switch>
+                    </md-table-cell>
                     <md-table-cell md-label="Name">{{ item.name }}</md-table-cell>
                     <md-table-cell md-label="Model">{{ item.version }}</md-table-cell>
                     <md-table-cell md-label="Status">{{ item.state }}</md-table-cell>
@@ -79,15 +81,19 @@
 </template>
 
 <script>
+import mySwitch from 'vue-switch/switch-2.vue'
 import axios from 'axios'
 
 export default {
   name: 'app',
-  components: {},
+  components: {
+    'my-switch': mySwitch
+  },
   props: {},
   data: () => ({
     isSelected: false,
     selected: {},
+    selectedEnable: false,
     devices: [],
     services: [],
     cardUserImage: '',
@@ -104,9 +110,14 @@ export default {
         return
       }
       this.selected = item
+      this.selectedEnable = this.selected.statusb
       this.services = item['services']
       this.isSelected = true
       this.cardUserImage = require('@/assets/img/' + item.model + '.png')
+    },
+
+    serviceOnSelect () {
+      console.log(1)
     },
 
     timerStart () {
@@ -132,6 +143,7 @@ export default {
                 name: devs[key]['dpgrs'][svc]['name'],
                 version: '2.0.0',
                 state: 'good',
+                enable: devs[key]['dpgrs'][svc]['enable'],
                 syncTime: devs[key]['dpgrs'][svc]['lastUpdated']
               }
               switch (devs[key]['dpgrs'][svc]['status']) {
