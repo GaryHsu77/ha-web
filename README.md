@@ -1,4 +1,4 @@
-# hello-world
+# doppelganger
 
 ## Project setup
 ```

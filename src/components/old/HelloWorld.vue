@@ -20,7 +20,7 @@
 import SimpleTable from './Tables/SimpleTable.vue'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Doppelganger',
   props: {
     msg: String
   },
