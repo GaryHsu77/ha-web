@@ -45,7 +45,7 @@
       @include btn-styles($brand-primary);
     }
     &.md-info{
-      @include btn-styles($brand-info);
+      @include btn-styles(rgb(89, 164, 167));
     }
     &.md-success{
       @include btn-styles($brand-success);
@@ -140,7 +140,7 @@
         padding: 18px 36px !important;
     }
     &.md-sm .md-ripple{
-        padding: 0.40625rem 1.25rem !important;
+        padding: 0.4rem 1.25rem !important;
         font-size: $mdb-btn-font-size-sm;
     }
 

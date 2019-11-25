@@ -386,11 +386,19 @@ select.form-control {
 }
 
 .md-field{
-  .md-input,
   .md-textarea{
-    height: 36px;
-    padding: 7px 0;
+    width: 500px;
+    height: 1000px;
+    padding: 0px 10px;
     font-size: 14px !important;
+    -webkit-text-fill-color: $black-color !important;
+  }
+
+  .md-input{
+    width: 500px;
+    height: 50px;
+    padding: 0px 0px;
+    font-size: 20px !important;
     -webkit-text-fill-color: $black-color !important;
   }
 
@@ -405,8 +413,9 @@ select.form-control {
 
 
   label{
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 7px 0px;
     color: $mdb-input-placeholder-color !important;
     line-height: 1.4;
     top: 26px;
